@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from productweb.models import Products
 
 
+
 def home(request):
     Data = {'Product': Products.objects.all()}
     return render(request,'pages/list.html', Data)
+def detail(request):
+    Data = {'Product': Products.objects.all()}
+    return render(request,'pages/view.html', Data)
