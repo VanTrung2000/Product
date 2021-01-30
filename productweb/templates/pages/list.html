@@ -1,40 +1,51 @@
 {% extends "pages/layout.html" %}
 {% block content %}
-<div class="container">
-<h1 class="text-center text-light bg-success">PRODUCT</h1>
-<p>
-   <a class="btn btn-outline-primary" href="http://127.0.0.1:8000/admin/productweb/products/add/">
-        Thêm mới sản phẩm
-   </a>
-</p>
+<section id="hero-area">
+      <img class="img-responsive" src="static/images/header.jpg" alt="">
+    </section>
+	<nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                                   <h1 class="text-primary text-center font-weight-bold">PRODUCTS</h1>
+                          </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</nav>
+ <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <ul>
+                            {% for item in Product %}
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
+                                <div class="blog-img">
+                                    <img src="{{item.image.url}}" width="300px" height="300px" />
+                                </div>
+                                <div class="content-right text-left">
+                                    <h1 class="text-danger "> {{item.name}}</h1>
+                                    <h2 class="text-body ">Giá:{{item.price}} VND</h2>
+                                    <h2 class="text-body">Mô tả:{{item.despation}}</h2>
+                                    <h2 class="text-body">Năm sản xuất:{{item.year}}</h2>
+                                    <h2 class="text-body">Thể loại:  {{item.category}}</h2>
+                                  <a class="btn btn-success" href="http://127.0.0.1:8000/detail"><h4>Xem chi tiết sản phẩm</h4></a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+ </section>
 
-<table class="table table-bordered  table-hover">
-    <thead>
-    <tr class="table-danger text-center">
 
-        <th>Tên Sản Phẩm</th>
-        <th>Giá</th>
-        <th>Mô Tả</th>
-        <th>Năm Sản Xuất</th>
-        <th>Hình Ảnh</th>
-        <th>Thể loại</th>
-        <th>Xem chi tiết</th>
-    </tr>
-    </thead>
-    <tbody>
-     {% for item in Product %}
-    <tr class="text-center">
-    <th>{{item.name}}</th>
-    <th>{{item.price}}</th>
-    <th>{{item.despation}}</th>
-    <th>{{item.year}}</th>
-    <th><img src="{{item.image.url}}" width="100px" height="100px" /></th>
-    <th>{{item.category}}</th>
-    <th><a class="btn btn-info" href="http://127.0.0.1:8000/detail">View</a> </th>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</div>
+
 
 {% endblock %}
