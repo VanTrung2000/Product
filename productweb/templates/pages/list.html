@@ -1,0 +1,41 @@
+{% extends "pages/layout.html" %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center text-light bg-danger">PRODUCT</h1>
+<p>
+   <a class="btn btn-outline-primary" href="">
+        Thêm mới sản phẩm
+   </a>
+</p>
+
+<table class="table table-bordered  table-hover">
+    <thead>
+    <tr class="table-success text-center">
+
+        <th>Tên Sản Phẩm</th>
+        <th>Giá</th>
+        <th>Mô Tả</th>
+        <th>Năm Sản Xuất</th>
+        <th>Thể loại</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+    </tr>
+    </thead>
+    <tbody>
+     {% for item in Product %}
+    <tr class="text-center">
+    <th>{{item.name}}</th>
+    <th>{{item.price}}</th>
+    <th>{{item.despation}}</th>
+    <th>{{item.year}}</th>
+    <th>{{item.category}}</th>
+    <th><a class="btn btn-danger" href="">Edit</a> </th>
+    <th><a class="btn btn-success" href="">Delete</a></th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
